@@ -113,7 +113,7 @@ st.markdown(
 
 menu = st.sidebar.selectbox(
     "Select Section",
-    ["Course Overview","Assessment","Admin Analytics"]
+    ["Course Overview","Modules","Case Study","Video Lectures","Activities & References","Assessment","Admin Analytics"]
 )
 
 # =====================================
@@ -323,4 +323,5 @@ elif menu == "Admin Analytics":
             st.session_state.admin_authenticated=False
 
             st.rerun()
+
 
