@@ -195,53 +195,29 @@ if menu == "Course Overview":
 #===================================
 # module 
 #==================================
-# =====================================
-# MODULES
-# =====================================
-elif menu == "Modules":
-    st.header("Module Wise Content")
-
-    # Path to the course folder
-    course_folder = os.path.join("modules", selected_course.replace(' ','_'))
-    
-    # Check if folder exists
-    if not os.path.exists(course_folder):
-        st.warning("No modules uploaded yet.")
-    else:
-        # Get all subfolders (modules)
-        modules = sorted(
-            [m for m in os.listdir(course_folder)
-             if os.path.isdir(os.path.join(course_folder, m)) and not m.startswith('.')]
-        )
-        
-        if not modules:
-            st.warning("No modules available.")
-        else:
-            selected_module = st.selectbox("Select Module", modules)
-            module_path = os.path.join(course_folder, selected_module)
-            
-            # Get all PDF and Word files in this module
-            files = sorted(
-                [f for f in os.listdir(module_path)
-                 if os.path.isfile(os.path.join(module_path, f)) 
-                 and f.lower().endswith(('.pdf', '.docx', '.doc'))]
-            )
-            
-            if not files:
-                st.info("No files in this module.")
-            else:
-                st.subheader(f"{selected_module} Materials")
-                
-                # Show download buttons for each file
-                for file in files:
-                    file_path = os.path.join(module_path, file)
-                    with open(file_path, "rb") as f:
-                        st.download_button(
-                            label=f"Download {file}",
-                            data=f,
-                            file_name=file,
-                            mime="application/octet-stream"
-                        )
+courseportal_sem/modules
+/Investment_banking/
+ra0600
+ra0600
+Module_5.pptx
+f25e8a1
+ · 
+1 hour ago
+Name	Last commit message	Last commit date
+..
+Module_1
+Module_1.pptx
+2 hours ago
+Module_2
+modules/Investment_banking/Module_2/Module_2.pptx
+2 hours ago
+Module_3
+Module_3.pdf
+1 hour ago
+Module_4
+Module_4.pptx
+1 hour ago
+Module_5
 # =====================================
 # ASSESSMENT
 # =====================================
@@ -334,6 +310,7 @@ elif menu == "Admin Analytics":
         if st.button("Logout Admin"):
             st.session_state.admin_authenticated = False
             st.rerun()
+
 
 
 
