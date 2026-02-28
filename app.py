@@ -22,33 +22,32 @@ COURSES = {
     "Investment Banking": {
         "password": "ib123",
         "bg_color": "#E8F1FA",
-        "color": "#0A3D62"
-        "theme_color": "#0A3D62"
+        "theme_color": "#0A3D62",
     },
     "Corporate Finance": {
         "password": "cf123",
         "bg_color": "#E8F5E9",
-        "color": "#1B5E20"
+        "theme_color": "#1B5E20",
     },
     "Risk Management": {
         "password": "rm123",
         "bg_color": "#F3E5F5",
-        "color": "#4A148C"
+        "theme_color": "#4A148C",
     },
    "Business Analytics": {
         "password": "rm123",
         "bg_color": "#F3E5F5",
-        "color": "#4A148C"
+        "theme_color": "#4A148C",
     },
     "Corporate Finance": {
         "password": "rm123",
         "bg_color": "#F3E5F5",
-        "color": "#4A148C"
+        "theme_color": "#4A148C",
     },
     "Risk Management": {
         "password": "rm123",
         "bg_color": "#F3E5F5",
-        "color": "#4A148C"
+        "theme_color": "#4A148C",
     }
 }
   
@@ -330,6 +329,7 @@ elif menu == "Admin Analytics":
             st.session_state.admin_authenticated=False
 
             st.rerun()
+
 
 
 
