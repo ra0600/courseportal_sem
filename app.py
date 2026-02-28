@@ -19,35 +19,35 @@ st.set_page_config(page_title="Academic Course Portal", layout="wide")
 # =====================================
 
 COURSES = {
-    "Investment Banking & Financial Services": {
+    "Investment Banking": {
         "password": "ib123",
         "bg_color": "#E8F1FA",
-        "theme_color": "#0A3D62"
+        "color": "#0A3D62"
     },
-    "Corporate Reporting-1": {
+    "Corporate Finance": {
         "password": "cf123",
         "bg_color": "#E8F5E9",
-        "theme_color": "#1B5E20"
+        "color": "#1B5E20"
     },
-    "NSS": {
-       "password": "rm123",
+    "Risk Management": {
+        "password": "rm123",
         "bg_color": "#F3E5F5",
-        "theme_color": "#4A148C"
+        "color": "#4A148C"
     },
    "Business Analytics": {
         "password": "rm123",
         "bg_color": "#F3E5F5",
-        "theme_color": "#4A148C"
+        "color": "#4A148C"
     },
     "Corporate Finance": {
         "password": "rm123",
         "bg_color": "#F3E5F5",
-        "theme_color": "#4A148C"
+        "color": "#4A148C"
     },
     "Risk Management": {
-      "password": "rm123",
+        "password": "rm123",
         "bg_color": "#F3E5F5",
-        "theme_color": "#4A148C"
+        "color": "#4A148C"
     }
 }
   
@@ -329,6 +329,7 @@ elif menu == "Admin Analytics":
             st.session_state.admin_authenticated=False
 
             st.rerun()
+
 
 
 
