@@ -117,20 +117,20 @@ auth_key = f"authenticated_{selected_course.replace(' ','_')}"
 if auth_key not in st.session_state:
     st.session_state[auth_key] = False
 
+# Ask password if course is not authenticated
 if not st.session_state[auth_key]:
-    pwd = st.text_input("Step 2: Enter Course Password", type="password")
-
+    pwd = st.text_input(f"Enter password for {selected_course}", type="password")
     if st.button("Login"):
         if pwd == COURSE_PASSWORD:
             st.session_state[auth_key] = True
             st.rerun()
         else:
             st.error("Incorrect Password")
+    st.stop()  # stop further code until password entered
 
-    st.stop()
 
 with st.sidebar:
-    if st.button("Logout"):
+    if st.button(f"Logout {selected_course}"):
         st.session_state[auth_key] = False
         st.rerun()
 
@@ -382,6 +382,7 @@ elif menu == "Admin Analytics":
         if st.button("Logout Admin"):
             st.session_state.admin_authenticated = False
             st.rerun()
+
 
 
 
