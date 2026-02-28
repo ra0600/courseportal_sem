@@ -23,6 +23,7 @@ COURSES = {
         "password": "ib123",
         "bg_color": "#E8F1FA",
         "color": "#0A3D62"
+        "theme_color": "#0A3D62"
     },
     "Corporate Finance": {
         "password": "cf123",
@@ -329,6 +330,7 @@ elif menu == "Admin Analytics":
             st.session_state.admin_authenticated=False
 
             st.rerun()
+
 
 
 
