@@ -23,6 +23,18 @@ COURSES = {
         "password": "ibfs123",
         "color": "#0A3D62"
     },
+    "Corporate Reporting-1": {
+        "password": "cf123",
+        "color": "#1B5E20"
+    },
+    "NSS": {
+        "password": "rm123",
+        "color": "#4A148C"
+    },
+   "Business Analytics": {
+        "password": "ibfs123",
+        "color": "#0A3D62"
+    },
     "Corporate Finance": {
         "password": "cf123",
         "color": "#1B5E20"
@@ -32,7 +44,7 @@ COURSES = {
         "color": "#4A148C"
     }
 }
-
+  
 ADMIN_PASSWORD = st.secrets["ADMIN_PASSWORD"]
 
 # =====================================
@@ -110,7 +122,21 @@ menu = st.sidebar.selectbox(
 
 if menu == "Course Overview":
     st.header("Course Overview")
-    st.write("Modules, case studies, activities and assessments are available for this course.")
+    st.write("Investment Banking & Financial Services is a 4 credit undergraduate course designed for BBA Financial Services students. The course covers 60 total hours including lectures and tutorials.
+
+This course introduces students to the structure and functioning of the Indian Financial System with special focus on investment banking and financial services in India.
+
+Students will learn about:
+
+• Indian Financial System and role of investment and merchant banking
+• SEBI regulations and issue management process
+• Public issues, book building and investor protection
+• Leasing and hire purchase systems with practical applications
+• Housing and mortgage finance in India
+• Venture capital, private equity and alternative investments
+• Insurance concepts and regulatory framework
+
+The course helps students understand financial market operations, regulatory guidelines and modern developments in the financial services sector.")
 
 # =====================================
 # ASSESSMENT SECTION
@@ -291,4 +317,5 @@ elif menu == "Admin Analytics":
 
         if st.button("Logout Admin"):
             st.session_state.admin_authenticated=False
+
             st.rerun()
