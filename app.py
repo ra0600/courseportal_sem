@@ -15,20 +15,44 @@ import uuid
 
 st.set_page_config(page_title="Academic Course Portal", layout="wide")
 
-# --- Simple Top Menu ---
-menu = st.selectbox(
-    "Main Website",
-    ["Home", "Courses"]
-)
+# Top Menu
+menu = st.selectbox("Main Website", ["Home", "Courses"])
 
+
+# ---------------- HOME PAGE ----------------
 if menu == "Home":
     st.title("🎓 Academic Course Portal")
     st.write("Welcome to the official academic website.")
-    st.write("Click on Courses to access your subject dashboards.")
+    st.write("Navigate to Courses to access your subject dashboard.")
 
+
+# ---------------- COURSES PAGE ----------------
 elif menu == "Courses":
+
     st.title("📚 Courses")
-    st.write("Please select your course to continue.")
+
+    # Step 1 → Select Course
+    selected_course = st.selectbox(
+        "Step 1: Select Your Course",
+        ["Investment Banking", "Corporate Finance", "Risk Management"]
+    )
+
+    # Step 2 → Enter Password
+    password = st.text_input("Step 2: Enter Course Password", type="password")
+
+    if password:
+        if (
+            (selected_course == "Investment Banking" and password == "ib123") or
+            (selected_course == "Corporate Finance" and password == "cf123") or
+            (selected_course == "Risk Management" and password == "rm123")
+        ):
+            st.success("Access Granted")
+
+            # Step 3 → Open Dashboard
+            st.subheader(f"{selected_course} Dashboard")
+
+        else:
+            st.error("Incorrect Password")
 
 # =====================================
 # COURSE CONFIGURATION
@@ -355,6 +379,7 @@ elif menu == "Admin Analytics":
             st.session_state.admin_authenticated=False
 
             st.rerun()
+
 
 
 
