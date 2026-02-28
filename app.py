@@ -12,22 +12,23 @@ from reportlab.graphics.barcode import qr
 from reportlab.graphics.shapes import Drawing
 import uuid
 
+
 st.set_page_config(page_title="Academic Course Portal", layout="wide")
 
-# Main navigation
-main_menu = st.sidebar.radio(
+# --- Simple Top Menu ---
+menu = st.selectbox(
     "Main Website",
     ["Home", "Courses"]
 )
 
-if main_menu == "Home":
+if menu == "Home":
     st.title("🎓 Academic Course Portal")
-    st.write("Welcome to the Main Website.")
-    st.write("Please navigate to Courses to access your subject dashboard.")
+    st.write("Welcome to the official academic website.")
+    st.write("Click on Courses to access your subject dashboards.")
 
-elif main_menu == "Courses":
+elif menu == "Courses":
     st.title("📚 Courses")
-    st.write("Select your course to continue.")
+    st.write("Please select your course to continue.")
 
 # =====================================
 # COURSE CONFIGURATION
@@ -354,6 +355,7 @@ elif menu == "Admin Analytics":
             st.session_state.admin_authenticated=False
 
             st.rerun()
+
 
 
 
