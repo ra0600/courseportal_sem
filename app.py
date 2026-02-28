@@ -113,7 +113,7 @@ with st.sidebar:
 # =====================================
 
 st.markdown(
-    f"<h1 style='text-align:center; color:{course_config['color']};'>{selected_course} Course Portal</h1>",
+    f"<h1 style='text-align:center; color:{course_config['theme_color']};'>{selected_course} Course Portal</h1>",
     unsafe_allow_html=True
 )
 
@@ -329,6 +329,7 @@ elif menu == "Admin Analytics":
             st.session_state.admin_authenticated=False
 
             st.rerun()
+
 
 
 
