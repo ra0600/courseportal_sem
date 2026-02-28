@@ -22,14 +22,58 @@ COURSES = {
     "Investment Banking": {
         "password": "ib123",
         "theme_color": "#0A3D62",
+        "overview": """
+### Investment Banking
+
+This course introduces students to the structure of the financial system,
+investment banking operations, public issues, underwriting, mergers and acquisitions,
+venture capital, and regulatory framework in India.
+
+**Key Learning Areas:**
+- Financial system structure
+- SEBI regulations
+- Issue management process
+- Mergers and acquisitions
+- Venture capital and private equity
+"""
     },
+
     "Corporate Finance": {
         "password": "cf123",
         "theme_color": "#1B5E20",
+        "overview": """
+### Corporate Finance
+
+This course focuses on financial decision making within corporations.
+Students learn capital budgeting, cost of capital, dividend policy,
+financial analysis, and working capital management.
+
+**Key Learning Areas:**
+- Capital structure decisions
+- Investment appraisal
+- Risk return analysis
+- Financial ratio analysis
+- Dividend policy
+"""
     },
+
     "Risk Management": {
         "password": "rm123",
         "theme_color": "#4A148C",
+        "overview": """
+### Risk Management
+
+This course covers identification, measurement, and control of financial risks.
+Students explore market risk, credit risk, operational risk,
+derivatives, and risk mitigation strategies.
+
+**Key Learning Areas:**
+- Types of financial risk
+- Hedging techniques
+- Derivatives usage
+- Basel norms
+- Enterprise risk management
+"""
     }
 }
 
@@ -239,3 +283,4 @@ elif menu == "Admin Analytics":
         if st.button("Logout Admin"):
             st.session_state.admin_authenticated = False
             st.rerun()
+
