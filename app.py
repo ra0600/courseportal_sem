@@ -21,32 +21,32 @@ st.set_page_config(page_title="Academic Course Portal", layout="wide")
 COURSES = {
     "Investment Banking": {
         "password": "ib123",
-        "bg_color": "#E8F1FA",
+        "bg_color": "#EAF4FF",      # light pastel blue
         "theme_color": "#0A3D62",
     },
     "Corporate Finance": {
         "password": "cf123",
-        "bg_color": "#E8F5E9",
+        "bg_color": "#EAFBF1",      # light pastel green
         "theme_color": "#1B5E20",
     },
     "Risk Management": {
         "password": "rm123",
-        "bg_color": "#F3E5F5",
+        "bg_color": "#F5ECFF",      # light pastel lavender
         "theme_color": "#4A148C",
     },
    "Business Analytics": {
         "password": "rm123",
-        "bg_color": "#F3E5F5",
+        "bg_color": "#F5ECFF",      # light pastel lavender
         "theme_color": "#4A148C",
     },
     "Corporate Finance": {
         "password": "rm123",
-        "bg_color": "#F3E5F5",
+        "bg_color": "#F5ECFF",      # light pastel lavender
         "theme_color": "#4A148C",
     },
     "Risk Management": {
         "password": "rm123",
-        "bg_color": "#F3E5F5",
+        "bg_color": "#F5ECFF",      # light pastel lavender
         "theme_color": "#4A148C",
     }
 }
@@ -59,6 +59,16 @@ ADMIN_PASSWORD = st.secrets["ADMIN_PASSWORD"]
 
 selected_course = st.selectbox("Select Course", list(COURSES.keys()))
 course_config = COURSES[selected_course]
+st.markdown(
+    f"""
+    <style>
+    .stApp {{
+        background-color: {course_config['bg_color']};
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 COURSE_PASSWORD = course_config["password"]
 
 # =====================================
@@ -329,6 +339,7 @@ elif menu == "Admin Analytics":
             st.session_state.admin_authenticated=False
 
             st.rerun()
+
 
 
 
