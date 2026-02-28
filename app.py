@@ -122,21 +122,25 @@ menu = st.sidebar.selectbox(
 
 if menu == "Course Overview":
     st.header("Course Overview")
-    st.write("Investment Banking & Financial Services is a 4 credit undergraduate course designed for BBA Financial Services students. The course covers 60 total hours including lectures and tutorials.
+
+    st.markdown("""
+**Investment Banking & Financial Services** is a 4 credit undergraduate course designed for BBA Financial Services students.  
+The course covers **60 total hours** including lectures and tutorials.
 
 This course introduces students to the structure and functioning of the Indian Financial System with special focus on investment banking and financial services in India.
 
-Students will learn about:
+### Students will learn about:
 
-• Indian Financial System and role of investment and merchant banking
-• SEBI regulations and issue management process
-• Public issues, book building and investor protection
-• Leasing and hire purchase systems with practical applications
-• Housing and mortgage finance in India
-• Venture capital, private equity and alternative investments
-• Insurance concepts and regulatory framework
+- Indian Financial System and role of investment and merchant banking  
+- SEBI regulations and issue management process  
+- Public issues, book building and investor protection  
+- Leasing and hire purchase systems with practical applications  
+- Housing and mortgage finance in India  
+- Venture capital, private equity and alternative investments  
+- Insurance concepts and regulatory framework  
 
-The course helps students understand financial market operations, regulatory guidelines and modern developments in the financial services sector.")
+The course helps students understand financial market operations, regulatory guidelines and modern developments in the financial services sector.
+""")
 
 # =====================================
 # ASSESSMENT SECTION
@@ -319,3 +323,4 @@ elif menu == "Admin Analytics":
             st.session_state.admin_authenticated=False
 
             st.rerun()
+
