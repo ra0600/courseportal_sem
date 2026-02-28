@@ -113,15 +113,16 @@ COURSE_PASSWORD = course_config["password"]
 # LOGIN SYSTEM
 # =====================================
 
-if "authenticated" not in st.session_state:
-    st.session_state.authenticated = False
+auth_key = f"authenticated_{selected_course.replace(' ','_')}"
+if auth_key not in st.session_state:
+    st.session_state[auth_key] = False
 
-if not st.session_state.authenticated:
+if not st.session_state[auth_key]:
     pwd = st.text_input("Step 2: Enter Course Password", type="password")
 
     if st.button("Login"):
         if pwd == COURSE_PASSWORD:
-            st.session_state.authenticated = True
+            st.session_state[auth_key] = True
             st.rerun()
         else:
             st.error("Incorrect Password")
@@ -130,7 +131,7 @@ if not st.session_state.authenticated:
 
 with st.sidebar:
     if st.button("Logout"):
-        st.session_state.authenticated = False
+        st.session_state[auth_key] = False
         st.rerun()
 
 # =====================================
@@ -381,6 +382,7 @@ elif menu == "Admin Analytics":
         if st.button("Logout Admin"):
             st.session_state.admin_authenticated = False
             st.rerun()
+
 
 
 
