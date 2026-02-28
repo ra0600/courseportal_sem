@@ -189,7 +189,7 @@ menu = st.sidebar.selectbox(
 
 if menu == "Course Overview":
     st.header("Course Overview")
-    st.write("This section contains full syllabus and structure of the course.")
+    st.markdown(course_config["overview"])
 
 # =====================================
 # ASSESSMENT
@@ -283,4 +283,5 @@ elif menu == "Admin Analytics":
         if st.button("Logout Admin"):
             st.session_state.admin_authenticated = False
             st.rerun()
+
 
