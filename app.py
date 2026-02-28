@@ -195,15 +195,24 @@ if menu == "Course Overview":
 #===================================
 # module 
 #==================================
+# =====================================
+# MODULES
+# =====================================
 elif menu == "Modules":
     st.header("Module Wise Content")
 
-    course_folder = f"modules/{selected_course.replace(' ','_')}"
+    # Path to the course folder
+    course_folder = os.path.join("modules", selected_course.replace(' ','_'))
     
+    # Check if folder exists
     if not os.path.exists(course_folder):
         st.warning("No modules uploaded yet.")
     else:
-        modules = sorted([m for m in os.listdir(course_folder) if os.path.isdir(os.path.join(course_folder, m))])
+        # Get all subfolders (modules)
+        modules = sorted(
+            [m for m in os.listdir(course_folder)
+             if os.path.isdir(os.path.join(course_folder, m)) and not m.startswith('.')]
+        )
         
         if not modules:
             st.warning("No modules available.")
@@ -211,13 +220,19 @@ elif menu == "Modules":
             selected_module = st.selectbox("Select Module", modules)
             module_path = os.path.join(course_folder, selected_module)
             
-            files = sorted([f for f in os.listdir(module_path) if os.path.isfile(os.path.join(module_path, f))])
+            # Get all PDF and Word files in this module
+            files = sorted(
+                [f for f in os.listdir(module_path)
+                 if os.path.isfile(os.path.join(module_path, f)) 
+                 and f.lower().endswith(('.pdf', '.docx', '.doc'))]
+            )
             
             if not files:
                 st.info("No files in this module.")
             else:
                 st.subheader(f"{selected_module} Materials")
                 
+                # Show download buttons for each file
                 for file in files:
                     file_path = os.path.join(module_path, file)
                     with open(file_path, "rb") as f:
@@ -319,6 +334,7 @@ elif menu == "Admin Analytics":
         if st.button("Logout Admin"):
             st.session_state.admin_authenticated = False
             st.rerun()
+
 
 
 
