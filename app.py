@@ -94,24 +94,6 @@ COURSES = {
 ADMIN_PASSWORD = st.secrets["ADMIN_PASSWORD"]
 
 # =====================================
-# COURSE SELECTION
-# =====================================
-
-selected_course = st.selectbox("Select Course", list(COURSES.keys()))
-course_config = COURSES[selected_course]
-st.markdown(
-    f"""
-    <style>
-    .stApp {{
-        background-color: {course_config['bg_color']};
-    }}
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-COURSE_PASSWORD = course_config["password"]
-
-# =====================================
 # FILE STRUCTURE
 # =====================================
 
@@ -379,6 +361,7 @@ elif menu == "Admin Analytics":
             st.session_state.admin_authenticated=False
 
             st.rerun()
+
 
 
 
