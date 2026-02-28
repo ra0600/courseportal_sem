@@ -196,33 +196,30 @@ if menu == "Course Overview":
 # module 
 #==================================
 elif menu == "Modules":
-
     st.header("Module Wise Content")
 
     course_folder = f"modules/{selected_course.replace(' ','_')}"
-
+    
     if not os.path.exists(course_folder):
         st.warning("No modules uploaded yet.")
     else:
-        modules = sorted(os.listdir(course_folder))
-
+        modules = sorted([m for m in os.listdir(course_folder) if os.path.isdir(os.path.join(course_folder, m))])
+        
         if not modules:
             st.warning("No modules available.")
         else:
             selected_module = st.selectbox("Select Module", modules)
-
             module_path = os.path.join(course_folder, selected_module)
-
-            files = os.listdir(module_path)
-
+            
+            files = sorted([f for f in os.listdir(module_path) if os.path.isfile(os.path.join(module_path, f))])
+            
             if not files:
                 st.info("No files in this module.")
             else:
                 st.subheader(f"{selected_module} Materials")
-
+                
                 for file in files:
                     file_path = os.path.join(module_path, file)
-
                     with open(file_path, "rb") as f:
                         st.download_button(
                             label=f"Download {file}",
@@ -322,6 +319,7 @@ elif menu == "Admin Analytics":
         if st.button("Logout Admin"):
             st.session_state.admin_authenticated = False
             st.rerun()
+
 
 
 
