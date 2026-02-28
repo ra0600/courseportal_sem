@@ -35,16 +35,19 @@ COURSES = {
         "theme_color": "#4A148C"
     },
    "Business Analytics": {
-        "password": "ibfs123",
-        "color": "#0A3D62"
+        "password": "rm123",
+        "bg_color": "#F3E5F5",
+        "theme_color": "#4A148C"
     },
     "Corporate Finance": {
-        "password": "cf123",
-        "color": "#1B5E20"
+        "password": "rm123",
+        "bg_color": "#F3E5F5",
+        "theme_color": "#4A148C"
     },
     "Risk Management": {
-        "password": "rm123",
-        "color": "#4A148C"
+      "password": "rm123",
+        "bg_color": "#F3E5F5",
+        "theme_color": "#4A148C"
     }
 }
   
@@ -326,6 +329,7 @@ elif menu == "Admin Analytics":
             st.session_state.admin_authenticated=False
 
             st.rerun()
+
 
 
 
