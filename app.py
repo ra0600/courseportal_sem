@@ -192,9 +192,6 @@ if menu == "Course Overview":
     st.markdown(course_config["overview"])
 
 
-#===================================
-# module 
-#==================================
 # =====================================
 # MODULES
 # =====================================
@@ -248,6 +245,50 @@ elif menu == "Modules":
                             file_name=file,
                             mime="application/octet-stream"
                         )
+
+# =====================================
+# CASE STUDY
+# =====================================
+elif menu == "Case Study":
+    st.header("Case Study Materials")
+
+    case_root = "case_studies"
+    course_folder_name = selected_course.replace(" ", "_").lower()
+    case_folder = None
+
+    # Find the folder for the selected course (case insensitive)
+    if os.path.exists(case_root):
+        for folder in os.listdir(case_root):
+            if os.path.isdir(os.path.join(case_root, folder)) and folder.lower() == course_folder_name:
+                case_folder = os.path.join(case_root, folder)
+                break
+
+    if not case_folder:
+        st.warning("No case studies uploaded yet.")
+    else:
+        # Get all files (PDF, Word) in the folder
+        files = sorted(
+            [f for f in os.listdir(case_folder)
+             if os.path.isfile(os.path.join(case_folder, f)) and f.lower().endswith(('.pdf', '.docx', '.doc'))]
+        )
+
+        if not files:
+            st.info("No case study files available.")
+        else:
+            st.subheader(f"{selected_course} Case Studies")
+            for file in files:
+                file_path = os.path.join(case_folder, file)
+                with open(file_path, "rb") as f:
+                    st.download_button(
+                        label=f"Download {file}",
+                        data=f,
+                        file_name=file,
+                        mime="application/octet-stream"
+                    )
+
+
+
+
 # =====================================
 # ASSESSMENT
 # =====================================
@@ -340,6 +381,7 @@ elif menu == "Admin Analytics":
         if st.button("Logout Admin"):
             st.session_state.admin_authenticated = False
             st.rerun()
+
 
 
 
