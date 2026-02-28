@@ -39,12 +39,12 @@ COURSES = {
         "bg_color": "#E8FBFF",      # light aqua
         "theme_color": "#4A148C",
     },
-    "Corporate Finance": {
+    "Business Ethics & Values": {
         "password": "rm123",
         "bg_color": "#FFEFF3",      # light rose
         "theme_color": "#4A148C",
     },
-    "Risk Management": {
+    "Blog Writing": {
         "password": "rm123",
         "bg_color": "#FDF6EC",      # light sand beige
         "theme_color": "#4A148C",
@@ -339,6 +339,7 @@ elif menu == "Admin Analytics":
             st.session_state.admin_authenticated=False
 
             st.rerun()
+
 
 
 
