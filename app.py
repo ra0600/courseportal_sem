@@ -26,7 +26,7 @@ COURSES = {
     },
     "Corporate Finance": {
         "password": "cf123",
-        "bg_color": "#EAFBF1",      # light pastel green
+        "bg_color": "#EAFBF1",      # soft mint green
         "theme_color": "#1B5E20",
     },
     "Risk Management": {
@@ -36,17 +36,17 @@ COURSES = {
     },
    "Business Analytics": {
         "password": "rm123",
-        "bg_color": "#F5ECFF",      # light pastel lavender
+        "bg_color": "#E8FBFF",      # light aqua
         "theme_color": "#4A148C",
     },
     "Corporate Finance": {
         "password": "rm123",
-        "bg_color": "#F5ECFF",      # light pastel lavender
+        "bg_color": "#FFEFF3",      # light rose
         "theme_color": "#4A148C",
     },
     "Risk Management": {
         "password": "rm123",
-        "bg_color": "#F5ECFF",      # light pastel lavender
+        "bg_color": "#FDF6EC",      # light sand beige
         "theme_color": "#4A148C",
     }
 }
@@ -339,6 +339,7 @@ elif menu == "Admin Analytics":
             st.session_state.admin_authenticated=False
 
             st.rerun()
+
 
 
 
