@@ -14,6 +14,21 @@ import uuid
 
 st.set_page_config(page_title="Academic Course Portal", layout="wide")
 
+# Main navigation
+main_menu = st.sidebar.radio(
+    "Main Website",
+    ["Home", "Courses"]
+)
+
+if main_menu == "Home":
+    st.title("🎓 Academic Course Portal")
+    st.write("Welcome to the Main Website.")
+    st.write("Please navigate to Courses to access your subject dashboard.")
+
+elif main_menu == "Courses":
+    st.title("📚 Courses")
+    st.write("Select your course to continue.")
+
 # =====================================
 # COURSE CONFIGURATION
 # =====================================
@@ -339,6 +354,7 @@ elif menu == "Admin Analytics":
             st.session_state.admin_authenticated=False
 
             st.rerun()
+
 
 
 
